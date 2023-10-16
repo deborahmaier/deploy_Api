@@ -1,11 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const { Schema } = require('mongoose')
 
-mongoose.connect(process.env.MONGO_URL, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-});
-
-const ProductSchema = new mongoose.Schema(
+const ProductSchema = new Schema(
     {
         name: String,
         price: String,
@@ -13,6 +9,4 @@ const ProductSchema = new mongoose.Schema(
     { collection: "products" }
     );
 
-const Product = mongoose.model("Product", ProductSchema);
-
-module.exports = Product;
+module.exports = mongoose.model('Product', ProductSchema);
